@@ -10,7 +10,7 @@ import os
 from translate_token import main as token_translate
 from util import debug
 from clone_based_edit import main as clone_based_token_generate
-
+import pathlib
 
 def check_existence(trees, golden_tree):
     for tree in trees:
@@ -51,11 +51,12 @@ def transform_structurally(structure_opts, golden_id_file):
 
 
 def get_paths(dataset_str):
-    return "/home/saikatc/Research/Codit/data/raw/" + dataset_str + '/', \
-           '/home/saikatc/Research/Codit/models/' + dataset_str + '/'
+    return str(pathlib.Path(__file__).parent.absolute()) + "/data/raw/" + dataset_str + '/', \
+           str(pathlib.Path(__file__).parent.absolute()) + '/models/' + dataset_str + '/'
 
 
 if __name__ == '__main__':
+
     dataset = 'code_change_data'
     tree_count = '2'
     if len(sys.argv) > 1:

@@ -7,7 +7,7 @@ import argparse
 import copy
 import pickle
 import sys
-
+import os
 import numpy as np
 from nltk.translate import bleu_score
 
@@ -17,7 +17,7 @@ from onmt.translate.translator import build_translator
 from onmt.utils.logging import init_logger
 from translate_structure import get_edit_dist
 from util import write_dummy_generated_node_types, debug
-
+import pathlib
 
 def get_bleu_score(original_codes, generated_top_result):
     blue_scores = []
